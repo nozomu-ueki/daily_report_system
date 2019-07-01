@@ -30,14 +30,14 @@ public class EmployeeValidator {
         return errors;
     }
 
-    // 社員番号
+
     private static String _validateCode(String code, Boolean code_duplicate_check_flag) {
-        // 必須入力チェック
+
         if(code == null || code.equals("")) {
             return "社員番号を入力してください。";
         }
 
-        // 既に登録されている社員番号との重複チェック
+
         if(code_duplicate_check_flag) {
             EntityManager em = DBUtil.createEntityManager();
             long employees_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class)
@@ -52,7 +52,7 @@ public class EmployeeValidator {
         return "";
     }
 
-  
+
     private static String _validateName(String name) {
         if(name == null || name.equals("")) {
             return "氏名を入力してください。";
@@ -61,9 +61,9 @@ public class EmployeeValidator {
         return "";
     }
 
-  
+
     private static String _validatePassword(String password, Boolean password_check_flag) {
-        
+
         if(password_check_flag && (password == null || password.equals(""))) {
             return "パスワードを入力してください。";
         }
