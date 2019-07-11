@@ -17,6 +17,10 @@
 <input type="text" name="name" value="${employee.name}" />
 <br /><br />
 
+<label for="department">所属部署</label><br />
+<input type="text" name="department" value="${employee.department}" />
+<br /><br />
+
 <label for="password">パスワード</label><br />
 <input type="password" name="password" />
 <br /><br />
