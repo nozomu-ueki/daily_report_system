@@ -45,6 +45,10 @@ public class Report {
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_department", nullable = false)
+    private Employee department;
+
     @Column(name = "report_date", nullable = false)
     private Date report_date;
 
@@ -67,6 +71,14 @@ public class Report {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Employee getDepartment() {
+    return department;
+    }
+
+    public void setDepartment(Employee department) {
+    this.department = department;
     }
 
     public Employee getEmployee() {

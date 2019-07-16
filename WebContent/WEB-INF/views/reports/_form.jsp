@@ -18,6 +18,10 @@
 <c:out value="${sessionScope.login_employee.name}" />
 <br /><br />
 
+<label for="department">所属部署</label><br />
+<c:out value="${sessionScope.login_employee.department}" />
+<br /><br />
+
 <label for="title">タイトル</label><br />
 <input type="text" name="title" value="${report.title}" />
 <br /><br />
