@@ -14,6 +14,10 @@
                             <td><c:out value="${report.employee.name}" /></td>
                         </tr>
                         <tr>
+                            <th>所属部署</th>
+                            <td><c:out value="${report.employee.department}" /></td>
+                        </tr>
+                        <tr>
                             <th>日付</th>
                             <td><fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' /></td>
                         </tr>

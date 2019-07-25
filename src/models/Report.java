@@ -32,7 +32,15 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getMyReportsCount",
             query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :employee"
-            )
+            ),
+    @NamedQuery(
+            name = "getDepartmentReports",
+            query = "SELECT r FROM Report AS r WHERE r.employee.department = :_department ORDER BY r.id DESC"
+            ),
+    @NamedQuery(
+            name = "getDepartmentCount",
+            query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee.department = :_department"
+            ),
 })
 @Entity
 public class Report {
@@ -44,10 +52,6 @@ public class Report {
     @ManyToOne
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
-
-    @ManyToOne
-    @JoinColumn(name = "employee_department", nullable = false)
-    private Employee department;
 
     @Column(name = "report_date", nullable = false)
     private Date report_date;
@@ -73,13 +77,6 @@ public class Report {
         this.id = id;
     }
 
-    public Employee getDepartment() {
-    return department;
-    }
-
-    public void setDepartment(Employee department) {
-    this.department = department;
-    }
 
     public Employee getEmployee() {
         return employee;
