@@ -41,6 +41,14 @@ import javax.persistence.Table;
             name = "getDepartmentCount",
             query = "SELECT COUNT(r) FROM Report AS r WHERE r.employee.department = :_department"
             ),
+    @NamedQuery(
+            name = "getSearchReports",
+            query = "SELECT r FROM Report AS r WHERE r.title like :_search ORDER BY r.id DESC"
+            ),
+    @NamedQuery(
+            name = "getSearchCount",
+            query = "SELECT COUNT (r) FROM Report AS r WHERE  r.title like :_search"
+            ),
 })
 @Entity
 public class Report {
